@@ -1,5 +1,13 @@
 def fun():
-    pass
+    print("First fun")
 
 
-print(type(fun))
+oldfun = fun
+
+
+def fun(msg):
+    print("Fun with message :", msg)
+
+
+oldfun()
+fun("Hello")
