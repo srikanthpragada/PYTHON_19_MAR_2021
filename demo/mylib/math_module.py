@@ -1,8 +1,17 @@
-def iseven(n):
+"""
+This module contains functions related to math and numbers
+"""
+
+def iseven(n: int) -> bool:
+    """
+    Takes a number and returns True if it is even number otherwise false
+    n : int
+    Returns bool
+    """
     return n % 2 == 0
 
 
-def square(n):
+def square(n: int) -> int:
     return n * n
 
 
