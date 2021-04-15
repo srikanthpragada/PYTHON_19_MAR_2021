@@ -1,4 +1,4 @@
-"""
+__doc__ = """
 This module contains functions related to math and numbers
 """
 
