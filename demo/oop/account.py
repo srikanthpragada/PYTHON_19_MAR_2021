@@ -19,14 +19,17 @@ class Account:
         else:
             raise ValueError("Insufficient Funds")
 
+    def getbalance(self):
+        return self.__balance
+
 
 a1 = Account(1, "Scott")  # Create an object
 a1.deposit(10000)
 a1.withdraw(5000)
-print(a1.__balance)
+print(a1.getbalance())
+
+# print(a1._Account__balance)
+print(a1.__dict__)
 a1.show()
 a2 = Account(2, "Jack", 10000)
 a2.show()
-
-
-
