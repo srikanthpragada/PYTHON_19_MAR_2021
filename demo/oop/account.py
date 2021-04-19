@@ -1,4 +1,11 @@
 class Account:
+    # static or class attribute
+    min_balance = 10000
+
+    @staticmethod
+    def getminbal():
+        return Account.min_balance
+
     # Constructor
     def __init__(self, acno, customer, balance=0.0):
         # Object attributes
@@ -14,7 +21,7 @@ class Account:
         self.__balance += amount
 
     def withdraw(self, amount):
-        if self.__balance >= amount:
+        if self.__balance - Account.min_balance >= amount:
             self.__balance -= amount
         else:
             raise ValueError("Insufficient Funds")
@@ -22,10 +29,16 @@ class Account:
     def getbalance(self):
         return self.__balance
 
+    @property
+    def availablebalance(self):
+        return self.__balance - Account.min_balance
 
+
+print(Account.getminbal())
 a1 = Account(1, "Scott")  # Create an object
-a1.deposit(10000)
+a1.deposit(100000)
 a1.withdraw(5000)
+print(a1.availablebalance)
 print(a1.getbalance())
 
 # print(a1._Account__balance)
