@@ -1,3 +1,11 @@
+class InsufficientFundsError(Exception):
+    def __init__(self, balance, amount):
+        self.message = f"Amount to withdraw is {amount}, but available balance is {balance}"
+
+    def __str__(self):
+        return self.message
+
+
 class Account:
     # static or class attribute
     min_balance = 10000
@@ -24,7 +32,7 @@ class Account:
         if self.__balance - Account.min_balance >= amount:
             self.__balance -= amount
         else:
-            raise ValueError("Insufficient Funds")
+            raise InsufficientFundsError(self.__balance,amount)
 
     def getbalance(self):
         return self.__balance
@@ -37,7 +45,7 @@ class Account:
 print(Account.getminbal())
 a1 = Account(1, "Scott")  # Create an object
 a1.deposit(100000)
-a1.withdraw(5000)
+a1.withdraw(200000)
 print(a1.availablebalance)
 print(a1.getbalance())
 
