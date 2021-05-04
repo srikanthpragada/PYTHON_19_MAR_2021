@@ -5,6 +5,6 @@ rem commit with the given message
 git commit -m %1
 
 rem push master branch of this remote project
-git push python_19_mar_2021 master
+git push python_16_mar_2021 master
 
 
